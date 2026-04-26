@@ -1,0 +1,115 @@
+ideas = {
+    country = {
+        NWR_spirit_of_rebirth = {
+            picture = idea_generic_nationalism
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.04
+                political_power_factor = 0.06
+                recruitable_population_factor = 0.01
+            }
+        }
+
+        NWR_army_reform_spirit = {
+            picture = idea_army_reform
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                army_org_factor = 0.05
+                division_attack_factor = 0.03
+            }
+        }
+
+        NWR_soviet_course_spirit = {
+            picture = idea_political_commissars
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.03
+                consumer_goods_factor = 0.02
+                political_power_factor = -0.03
+            }
+        }
+
+        NWR_comintern_member_spirit = {
+            picture = idea_internationalism
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                trade_opinion_factor = 0.05
+                monthly_population = 0.02
+            }
+        }
+
+        # Разблокируются после фокуса "Восстановить партийные ячейки"
+        NWR_advisor_party_organizer = {
+            picture = idea_political_commissars
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                political_power_gain = 0.08
+            }
+        }
+
+        NWR_advisor_red_professor = {
+            picture = idea_research_production
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                research_speed_factor = 0.03
+            }
+        }
+
+        NWR_advisor_industrial_commissar = {
+            picture = idea_resource_requisition
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                production_speed_buildings_factor = 0.04
+            }
+        }
+
+        NWR_advisor_security_chief = {
+            picture = idea_secret_police
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.02
+                resistance_target = -0.02
+            }
+        }
+
+        NWR_advisor_frontline_marshall = {
+            picture = idea_army_reform
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                division_defense_factor = 0.03
+                planning_speed = 0.04
+            }
+        }
+
+        NWR_advisor_agitprop = {
+            picture = idea_generic_propaganda
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
+            modifier = {
+                drift_defence_factor = 0.04
+                weekly_stability = 0.01
+            }
+        }
+    }
+}
