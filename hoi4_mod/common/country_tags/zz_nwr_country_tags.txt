@@ -1,0 +1,1 @@
+NWR = "countries/NWR - Novaya Rossiya.txt"
