@@ -1,0 +1,204 @@
+focus_tree = {
+    id = NWR_focus
+    country = {
+        factor = 1
+        modifier = {
+            add = 100
+            tag = NWR
+        }
+    }
+
+    default = no
+    continuous_focus_position = { x = 50 y = 1000 }
+
+    focus = {
+        id = NWR_take_soviet_course
+        icon = GFX_goal_generic_political_pressure
+        x = 8
+        y = 0
+        cost = 5
+        mutually_exclusive = { focus = NWR_road_to_independence }
+        completion_reward = {
+            add_political_power = 50
+            add_stability = 0.03
+            add_ideas = NWR_soviet_course_spirit
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_soviet_course_opinion
+            }
+        }
+    }
+
+    focus = {
+        id = NWR_road_to_independence
+        icon = GFX_goal_generic_national_unity
+        x = 12
+        y = 0
+        cost = 5
+        mutually_exclusive = { focus = NWR_take_soviet_course }
+        completion_reward = {
+            add_political_power = 60
+            add_stability = 0.03
+        }
+    }
+
+    focus = {
+        id = NWR_restore_party_cells
+        icon = GFX_goal_generic_propaganda
+        x = 8
+        y = 1
+        cost = 5
+        prerequisite = { focus = NWR_take_soviet_course }
+        completion_reward = {
+            set_country_flag = NWR_party_cells_restored
+            add_political_power = 75
+            add_stability = 0.02
+        }
+    }
+
+    focus = {
+        id = NWR_red_education_program
+        icon = GFX_goal_generic_scientific_exchange
+        x = 8
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_restore_party_cells }
+        completion_reward = {
+            add_research_slot = 1
+            add_political_power = -25
+        }
+    }
+
+    focus = {
+        id = NWR_union_with_comrades
+        icon = GFX_goal_support_communism
+        x = 8
+        y = 3
+        cost = 5
+        prerequisite = { focus = NWR_red_education_program }
+        completion_reward = {
+            add_war_support = 0.04
+            add_stability = 0.02
+            add_timed_idea = {
+                idea = NWR_comintern_member_spirit
+                days = 730
+            }
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_comrade_treaty_opinion
+            }
+        }
+    }
+
+    focus = {
+        id = NWR_join_comintern
+        icon = GFX_goal_support_communism
+        x = 8
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_union_with_comrades }
+        completion_reward = {
+            add_political_power = 50
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_comrade_treaty_opinion
+            }
+            add_to_faction = SOV
+        }
+    }
+
+    focus = {
+        id = NWR_path_caucasian_ssr
+        icon = GFX_goal_generic_political_reform
+        x = 7
+        y = 5
+        cost = 5
+        prerequisite = { focus = NWR_join_comintern }
+        mutually_exclusive = { focus = NWR_path_middle_east_ssr }
+        completion_reward = {
+            add_political_power = 40
+            set_country_flag = NWR_caucasus_integration_unlocked
+        }
+    }
+
+    focus = {
+        id = NWR_path_middle_east_ssr
+        icon = GFX_goal_generic_diplomacy
+        x = 9
+        y = 5
+        cost = 5
+        prerequisite = { focus = NWR_join_comintern }
+        mutually_exclusive = { focus = NWR_path_caucasian_ssr }
+        completion_reward = {
+            add_war_support = 0.04
+            add_political_power = 40
+            set_country_flag = NWR_middle_east_path_unlocked
+        }
+    }
+
+    focus = {
+        id = NWR_assert_sovereignty
+        icon = GFX_goal_generic_political_reform
+        x = 12
+        y = 1
+        cost = 5
+        prerequisite = { focus = NWR_road_to_independence }
+        completion_reward = {
+            add_political_power = 50
+            add_stability = 0.02
+        }
+    }
+
+    focus = {
+        id = NWR_neutral_diplomacy
+        icon = GFX_goal_generic_diplomacy
+        x = 12
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_assert_sovereignty }
+        completion_reward = {
+            add_stability = 0.02
+            add_war_support = 0.02
+        }
+    }
+
+    focus = {
+        id = NWR_civic_compact
+        icon = GFX_goal_generic_national_unity
+        x = 12
+        y = 3
+        cost = 5
+        prerequisite = { focus = NWR_neutral_diplomacy }
+        completion_reward = {
+            add_stability = 0.05
+        }
+    }
+
+    focus = {
+        id = NWR_caucasian_commonwealth
+        icon = GFX_goal_generic_major_war
+        x = 11
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_civic_compact }
+        mutually_exclusive = { focus = NWR_middle_east_partnership }
+        completion_reward = {
+            add_political_power = 40
+            add_war_support = 0.03
+        }
+    }
+
+    focus = {
+        id = NWR_middle_east_partnership
+        icon = GFX_goal_generic_alliance
+        x = 13
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_civic_compact }
+        mutually_exclusive = { focus = NWR_caucasian_commonwealth }
+        completion_reward = {
+            add_political_power = 40
+            add_stability = 0.03
+        }
+    }
+}
