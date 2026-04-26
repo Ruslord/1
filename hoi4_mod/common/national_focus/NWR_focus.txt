@@ -9,6 +9,7 @@ focus_tree = {
     }
 
     default = no
+
     continuous_focus_position = { x = 50 y = 1000 }
 
     # Политический выбор направления государства
@@ -21,6 +22,8 @@ focus_tree = {
         mutually_exclusive = { focus = NWR_road_to_independence }
         completion_reward = {
             add_political_power = 50
+            add_stability = 0.03
+            add_ideas = NWR_soviet_course_spirit
         available = {
             has_political_power > 49
         }
@@ -141,6 +144,7 @@ focus_tree = {
         completion_reward = {
             add_war_support = 0.04
             add_stability = 0.02
+            add_political_power = 50
             add_timed_idea = {
                 idea = NWR_comintern_member_spirit
                 days = 730
@@ -160,6 +164,8 @@ focus_tree = {
         cost = 5
         prerequisite = { focus = NWR_union_with_comrades }
         completion_reward = {
+            add_political_power = 50
+            set_country_flag = NWR_comintern_ready
             if = {
                 limit = {
                     is_in_faction = yes

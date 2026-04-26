@@ -56,6 +56,36 @@ decisions = {
                 add_state_core = 235
             }
             ai_will_do = { factor = 1 }
+        }
+    }
+
+    NWR_comintern_policy = {
+        icon = generic_diplomacy
+        allowed = { original_tag = NWR }
+        visible = { has_country_flag = NWR_comintern_ready }
+
+        NWR_join_comintern_decision = {
+            icon = generic_alliance
+            days_remove = 30
+            available = {
+                SOV = { has_faction = yes }
+                is_in_faction = no
+                has_opinion = {
+                    target = SOV
+                    value > 24
+                }
+            }
+            complete_effect = {
+                add_to_faction = SOV
+                add_opinion_modifier = {
+                    target = SOV
+                    modifier = NWR_comrade_treaty_opinion
+                }
+            }
+            ai_will_do = { factor = 1 }
+        }
+    }
+
             ai_will_do = {
                 factor = 1
             }
