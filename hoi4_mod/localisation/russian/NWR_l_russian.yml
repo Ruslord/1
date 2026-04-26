@@ -30,6 +30,18 @@ l_russian:
 
  NWR_soviet_course_opinion:0 "Просоветский курс Новой России"
 
+ NWR_focus:0 "Путь Новой России"
+ NWR_rebuild_state:0 "Восстановить государство"
+ NWR_rebuild_state_desc:0 "Первым шагом станет укрепление аппарата управления и стабилизация страны."
+ NWR_military_reforms:0 "Военные реформы"
+ NWR_military_reforms_desc:0 "Пора перестроить армию под реалии новой эпохи."
+ NWR_industry_first:0 "Индустрия прежде всего"
+ NWR_industry_first_desc:0 "Промышленный фундамент позволит обеспечить долгосрочное развитие."
+ NWR_national_unity:0 "Национальное единство"
+ NWR_national_unity_desc:0 "Единство общества — главное условие выживания и роста."
+ NWR_future_path:0 "Курс в будущее"
+ NWR_future_path_desc:0 "Завершив базовые реформы, мы направим ресурсы в развитие и науку."
+
  NWR_internal_politics:0 "Внутренняя политика"
  NWR_hold_unity_congress:0 "Провести конгресс единства"
  NWR_hold_unity_congress_desc:0 "Большой политический конгресс должен укрепить легитимность правительства."

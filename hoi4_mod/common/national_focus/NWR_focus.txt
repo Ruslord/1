@@ -49,6 +49,14 @@ focus_tree = {
         mutually_exclusive = { focus = NWR_take_soviet_course }
         completion_reward = {
             add_political_power = 70
+    focus = {
+        id = NWR_rebuild_state
+        icon = GFX_goal_generic_construct_civilian
+        x = 10
+        y = 0
+        cost = 5
+        completion_reward = {
+            add_political_power = 75
             add_stability = 0.05
         }
     }
@@ -64,6 +72,16 @@ focus_tree = {
         completion_reward = {
             add_stability = 0.02
             add_war_support = 0.02
+    focus = {
+        id = NWR_military_reforms
+        icon = GFX_goal_generic_army_tanks
+        x = 10
+        y = 1
+        cost = 5
+        prerequisite = { focus = NWR_rebuild_state }
+        completion_reward = {
+            army_experience = 25
+            add_ideas = NWR_army_reform_spirit
         }
     }
 
@@ -95,6 +113,17 @@ focus_tree = {
             add_opinion_modifier = {
                 target = SOV
                 modifier = NWR_soviet_course_opinion
+        id = NWR_industry_first
+        icon = GFX_goal_generic_construct_mil_factory
+        x = 9
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_military_reforms }
+        completion_reward = {
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
             }
         }
     }
@@ -110,6 +139,15 @@ focus_tree = {
         completion_reward = {
             add_stability = 0.04
             add_political_power = 50
+        id = NWR_national_unity
+        icon = GFX_goal_generic_national_unity
+        x = 11
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_military_reforms }
+        completion_reward = {
+            add_stability = 0.10
+            country_event = { id = nwr.1 days = 1 }
         }
     }
 
@@ -124,6 +162,23 @@ focus_tree = {
         completion_reward = {
             add_war_support = 0.04
             add_political_power = 50
+        id = NWR_future_path
+        icon = GFX_goal_generic_scientific_exchange
+        x = 10
+        y = 3
+        cost = 5
+        prerequisite = {
+            focus = NWR_industry_first
+            focus = NWR_national_unity
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                name = NWR_future_bonus
+                bonus = 1.0
+                uses = 1
+                category = industry
+            }
+            add_political_power = 120
         }
     }
 }
