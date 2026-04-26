@@ -20,6 +20,7 @@ focus_tree = {
         cost = 5
         mutually_exclusive = { focus = NWR_road_to_independence }
         completion_reward = {
+            add_political_power = 50
         available = {
             has_political_power > 49
         }
@@ -179,6 +180,8 @@ focus_tree = {
             add_opinion_modifier = {
                 target = SOV
                 modifier = NWR_comrade_treaty_opinion
+            }
+            add_to_faction = SOV
             add_popularity = {
                 ideology = communism
                 popularity = 0.08
