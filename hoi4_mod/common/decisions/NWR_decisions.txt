@@ -1,0 +1,89 @@
+decisions = {
+    NWR_internal_politics = {
+        icon = generic_political_reform
+        allowed = { original_tag = NWR }
+        visible = { tag = NWR }
+
+        NWR_hold_unity_congress = {
+            icon = generic_prepare_for_war
+            days_remove = 35
+            available = {
+                has_political_power > 49
+            }
+            visible = { always = yes }
+            complete_effect = {
+                add_political_power = -50
+                add_stability = 0.05
+                country_event = { id = nwr.1 days = 1 }
+            }
+            ai_will_do = { factor = 1 }
+        }
+    }
+
+    NWR_caucasus_integration = {
+        icon = generic_national_unity
+        allowed = { original_tag = NWR }
+        visible = {
+            has_country_flag = NWR_caucasus_integration_unlocked
+        }
+
+        NWR_request_caucasus_transfer = {
+            icon = generic_diplomacy
+            days_remove = 60
+            available = {
+                is_in_faction_with = SOV
+                SOV = {
+                    has_opinion = {
+                        target = ROOT
+                        value > 74
+                    }
+                }
+            }
+            complete_effect = {
+                add_political_power = -75
+                SOV = {
+                    every_owned_state = {
+                        limit = {
+                            OR = {
+                                is_core_of = GEO
+                                is_core_of = ARM
+                                is_core_of = AZR
+                            }
+                        }
+                        transfer_state = ROOT
+                    }
+                }
+                add_state_core = 235
+            }
+            ai_will_do = { factor = 1 }
+        }
+    }
+
+    NWR_comintern_policy = {
+        icon = generic_diplomacy
+        allowed = { original_tag = NWR }
+        visible = { has_country_flag = NWR_comintern_ready }
+
+        NWR_join_comintern_decision = {
+            icon = generic_alliance
+            days_remove = 30
+            available = {
+                SOV = { has_faction = yes }
+                is_in_faction = no
+                has_opinion = {
+                    target = SOV
+                    value > 24
+                }
+            }
+            complete_effect = {
+                add_to_faction = SOV
+                add_opinion_modifier = {
+                    target = SOV
+                    modifier = NWR_comrade_treaty_opinion
+                }
+            }
+            ai_will_do = { factor = 1 }
+        }
+    }
+
+}

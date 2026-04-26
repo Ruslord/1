@@ -1,0 +1,27 @@
+capital = 235
+set_research_slots = 2
+set_convoys = 20
+set_stability = 0.52
+set_war_support = 0.18
+set_popularities = {
+    communism = 0.70
+    neutrality = 0.20
+    democratic = 0.05
+    fascism = 0.05
+}
+set_politics = {
+    ruling_party = communism
+    elections_allowed = no
+    last_election = "1936.1.1"
+    election_frequency = 48
+}
+add_ideas = NWR_spirit_of_rebirth
+set_oob = "NWR_1936"
+create_country_leader = {
+    name = "Nikolay Antonov"
+    desc = "POLITICS_NIKOLAY_ANTONOV_DESC"
+    picture = "gfx/leaders/SOV/SOV_generic.tga"
+    expire = "1965.1.1"
+    ideology = communism
+    traits = { }
+}
