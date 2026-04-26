@@ -1,0 +1,16 @@
+add_namespace = nwr
+
+country_event = {
+    id = nwr.1
+    title = nwr.1.t
+    desc = nwr.1.d
+    picture = GFX_report_event_generic_politics
+
+    is_triggered_only = yes
+
+    option = {
+        name = nwr.1.a
+        add_political_power = 50
+        add_war_support = 0.05
+    }
+}
