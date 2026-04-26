@@ -56,6 +56,9 @@ decisions = {
                 add_state_core = 235
             }
             ai_will_do = { factor = 1 }
+            ai_will_do = {
+                factor = 1
+            }
         }
     }
 }

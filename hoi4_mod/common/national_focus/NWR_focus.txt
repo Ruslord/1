@@ -11,6 +11,7 @@ focus_tree = {
     default = no
     continuous_focus_position = { x = 50 y = 1000 }
 
+    # Политический выбор направления государства
     focus = {
         id = NWR_take_soviet_course
         icon = GFX_goal_generic_political_pressure
@@ -20,11 +21,40 @@ focus_tree = {
         mutually_exclusive = { focus = NWR_road_to_independence }
         completion_reward = {
             add_political_power = 50
+        available = {
+            has_political_power > 49
+        }
+        completion_reward = {
+            add_political_power = -50
             add_stability = 0.03
             add_ideas = NWR_soviet_course_spirit
             add_opinion_modifier = {
                 target = SOV
                 modifier = NWR_soviet_course_opinion
+            }
+            SOV = {
+                add_ai_strategy = {
+                    type = befriend
+                    id = NWR
+                    value = 150
+                }
+            }
+            if = {
+                limit = {
+                    is_in_faction = yes
+                    NOT = { is_in_faction_with = SOV }
+                }
+                leave_faction = yes
+            }
+            if = {
+                limit = {
+                    SOV = { has_faction = yes }
+                    NOT = { is_in_faction_with = SOV }
+                }
+                add_to_faction = SOV
+            }
+                    value = 120
+                }
             }
         }
     }
@@ -42,6 +72,20 @@ focus_tree = {
         }
     }
 
+            add_political_power = 70
+    focus = {
+        id = NWR_rebuild_state
+        icon = GFX_goal_generic_construct_civilian
+        x = 10
+        y = 0
+        cost = 5
+        completion_reward = {
+            add_political_power = 75
+            add_stability = 0.05
+        }
+    }
+
+    # Ветка "Взять курс на СССР"
     focus = {
         id = NWR_restore_party_cells
         icon = GFX_goal_generic_propaganda
@@ -53,6 +97,24 @@ focus_tree = {
             set_country_flag = NWR_party_cells_restored
             add_political_power = 75
             add_stability = 0.02
+            add_ideas = NWR_advisor_party_organizer
+            add_ideas = NWR_advisor_red_professor
+            add_ideas = NWR_advisor_industrial_commissar
+            add_ideas = NWR_advisor_security_chief
+            add_ideas = NWR_advisor_frontline_marshall
+            add_ideas = NWR_advisor_agitprop
+            add_stability = 0.02
+            add_war_support = 0.02
+    focus = {
+        id = NWR_military_reforms
+        icon = GFX_goal_generic_army_tanks
+        x = 10
+        y = 1
+        cost = 5
+        prerequisite = { focus = NWR_rebuild_state }
+        completion_reward = {
+            army_experience = 25
+            add_ideas = NWR_army_reform_spirit
         }
     }
 
@@ -98,12 +160,47 @@ focus_tree = {
         cost = 5
         prerequisite = { focus = NWR_union_with_comrades }
         completion_reward = {
+            if = {
+                limit = {
+                    is_in_faction = yes
+                    NOT = { is_in_faction_with = SOV }
+                }
+                leave_faction = yes
+            }
+            if = {
+                limit = {
+                    SOV = { has_faction = yes }
+                    NOT = { is_in_faction_with = SOV }
+                    SOV = { has_faction = yes }
+                    is_in_faction = no
+                }
+                add_to_faction = SOV
+            }
             add_political_power = 50
             add_opinion_modifier = {
                 target = SOV
                 modifier = NWR_comrade_treaty_opinion
             }
             add_to_faction = SOV
+            add_popularity = {
+                ideology = communism
+                popularity = 0.08
+            }
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_soviet_course_opinion
+        id = NWR_industry_first
+        icon = GFX_goal_generic_construct_mil_factory
+        x = 9
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_military_reforms }
+        completion_reward = {
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
         }
     }
 
@@ -118,6 +215,22 @@ focus_tree = {
         completion_reward = {
             add_political_power = 40
             set_country_flag = NWR_caucasus_integration_unlocked
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_union_with_comrades }
+        mutually_exclusive = { focus = NWR_path_middle_east_ssr }
+        completion_reward = {
+            add_stability = 0.04
+            add_political_power = 50
+        id = NWR_national_unity
+        icon = GFX_goal_generic_national_unity
+        x = 11
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_military_reforms }
+        completion_reward = {
+            add_stability = 0.10
+            country_event = { id = nwr.1 days = 1 }
         }
     }
 
@@ -199,6 +312,30 @@ focus_tree = {
         completion_reward = {
             add_political_power = 40
             add_stability = 0.03
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_union_with_comrades }
+        mutually_exclusive = { focus = NWR_path_caucasian_ssr }
+        completion_reward = {
+            add_war_support = 0.04
+            add_political_power = 50
+        id = NWR_future_path
+        icon = GFX_goal_generic_scientific_exchange
+        x = 10
+        y = 3
+        cost = 5
+        prerequisite = {
+            focus = NWR_industry_first
+            focus = NWR_national_unity
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                name = NWR_future_bonus
+                bonus = 1.0
+                uses = 1
+                category = industry
+            }
+            add_political_power = 120
         }
     }
 }
