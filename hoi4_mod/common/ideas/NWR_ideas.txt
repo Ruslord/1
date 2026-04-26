@@ -7,6 +7,8 @@ ideas = {
             modifier = {
                 stability_factor = 0.04
                 political_power_factor = 0.06
+                stability_factor = 0.05
+                political_power_factor = 0.10
                 recruitable_population_factor = 0.01
             }
         }
@@ -49,6 +51,14 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+
+        # Разблокируются после фокуса "Восстановить партийные ячейки"
+        NWR_advisor_party_organizer = {
+            picture = idea_political_commissars
+            allowed = { original_tag = NWR }
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 political_power_gain = 0.08
             }
@@ -59,6 +69,9 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 research_speed_factor = 0.03
             }
@@ -69,6 +82,9 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 production_speed_buildings_factor = 0.04
             }
@@ -79,6 +95,9 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 stability_factor = 0.02
                 resistance_target = -0.02
@@ -90,6 +109,9 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 division_defense_factor = 0.03
                 planning_speed = 0.04
@@ -101,6 +123,9 @@ ideas = {
             allowed = { original_tag = NWR }
             available = { has_country_flag = NWR_party_cells_restored }
             cost = 75
+            visible = { has_country_flag = NWR_party_cells_restored }
+            allowed_civil_war = { always = yes }
+            removal_cost = -1
             modifier = {
                 drift_defence_factor = 0.04
                 weekly_stability = 0.01

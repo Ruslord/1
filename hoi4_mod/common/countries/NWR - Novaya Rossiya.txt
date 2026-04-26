@@ -6,6 +6,10 @@ party_emblems = {
     communism = {
         icon = GFX_idea_political_commissars
     }
+color = { 30 100 170 }
+color_ui = { 30 100 170 }
+
+party_emblems = {
     neutrality = {
         icon = GFX_idea_generic_political_reform
     }
