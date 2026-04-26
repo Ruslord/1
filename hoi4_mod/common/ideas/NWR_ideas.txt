@@ -20,5 +20,16 @@ ideas = {
                 division_attack_factor = 0.03
             }
         }
+
+        NWR_soviet_course_spirit = {
+            picture = idea_political_commissars
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.03
+                consumer_goods_factor = 0.02
+                political_power_factor = -0.03
+            }
+        }
     }
 }
