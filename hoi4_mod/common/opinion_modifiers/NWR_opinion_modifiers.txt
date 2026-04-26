@@ -3,4 +3,8 @@ opinion_modifiers = {
         value = 40
         decay = 0
     }
+    NWR_comrade_treaty_opinion = {
+        value = 65
+        decay = 0
+    }
 }

@@ -1,4 +1,11 @@
 graphical_culture = eastern_european_gfx
+color = { 205 30 45 }
+color_ui = { 205 30 45 }
+
+party_emblems = {
+    communism = {
+        icon = GFX_idea_political_commissars
+    }
 color = { 30 100 170 }
 color_ui = { 30 100 170 }
 

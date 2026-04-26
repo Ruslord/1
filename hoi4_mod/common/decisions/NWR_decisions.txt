@@ -16,6 +16,46 @@ decisions = {
                 add_stability = 0.05
                 country_event = { id = nwr.1 days = 1 }
             }
+            ai_will_do = { factor = 1 }
+        }
+    }
+
+    NWR_caucasus_integration = {
+        icon = generic_national_unity
+        allowed = { original_tag = NWR }
+        visible = {
+            has_country_flag = NWR_caucasus_integration_unlocked
+        }
+
+        NWR_request_caucasus_transfer = {
+            icon = generic_diplomacy
+            days_remove = 60
+            available = {
+                is_in_faction_with = SOV
+                SOV = {
+                    has_opinion = {
+                        target = ROOT
+                        value > 74
+                    }
+                }
+            }
+            complete_effect = {
+                add_political_power = -75
+                SOV = {
+                    every_owned_state = {
+                        limit = {
+                            OR = {
+                                is_core_of = GEO
+                                is_core_of = ARM
+                                is_core_of = AZR
+                            }
+                        }
+                        transfer_state = ROOT
+                    }
+                }
+                add_state_core = 235
+            }
+            ai_will_do = { factor = 1 }
             ai_will_do = {
                 factor = 1
             }
