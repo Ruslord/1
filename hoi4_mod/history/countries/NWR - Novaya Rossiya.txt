@@ -1,0 +1,21 @@
+capital = 219
+set_research_slots = 2
+set_convoys = 20
+set_stability = 0.55
+set_war_support = 0.20
+set_politics = {
+    ruling_party = neutrality
+    elections_allowed = no
+    last_election = "1936.1.1"
+    election_frequency = 48
+}
+add_ideas = NWR_spirit_of_rebirth
+set_oob = "NWR_1936"
+create_country_leader = {
+    name = "Nikolay Antonov"
+    desc = "POLITICS_NIKOLAY_ANTONOV_DESC"
+    picture = "gfx/leaders/SOV/SOV_generic.tga"
+    expire = "1965.1.1"
+    ideology = despotism
+    traits = { }
+}

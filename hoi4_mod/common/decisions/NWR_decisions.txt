@@ -1,0 +1,24 @@
+decisions = {
+    NWR_internal_politics = {
+        icon = generic_political_reform
+        allowed = { original_tag = NWR }
+        visible = { tag = NWR }
+
+        NWR_hold_unity_congress = {
+            icon = generic_prepare_for_war
+            days_remove = 35
+            available = {
+                has_political_power > 49
+            }
+            visible = { always = yes }
+            complete_effect = {
+                add_political_power = -50
+                add_stability = 0.05
+                country_event = { id = nwr.1 days = 1 }
+            }
+            ai_will_do = {
+                factor = 1
+            }
+        }
+    }
+}

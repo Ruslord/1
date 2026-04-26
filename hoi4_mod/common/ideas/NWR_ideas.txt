@@ -1,0 +1,35 @@
+ideas = {
+    country = {
+        NWR_spirit_of_rebirth = {
+            picture = idea_generic_nationalism
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.05
+                political_power_factor = 0.10
+                recruitable_population_factor = 0.01
+            }
+        }
+
+        NWR_army_reform_spirit = {
+            picture = idea_army_reform
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                army_org_factor = 0.05
+                division_attack_factor = 0.03
+            }
+        }
+
+        NWR_soviet_course_spirit = {
+            picture = idea_political_commissars
+            allowed = { original_tag = NWR }
+            removal_cost = -1
+            modifier = {
+                stability_factor = 0.03
+                consumer_goods_factor = 0.02
+                political_power_factor = -0.03
+            }
+        }
+    }
+}

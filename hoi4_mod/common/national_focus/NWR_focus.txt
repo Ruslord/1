@@ -1,0 +1,129 @@
+focus_tree = {
+    id = NWR_focus
+    country = {
+        factor = 1
+        modifier = {
+            add = 100
+            tag = NWR
+        }
+    }
+
+    default = no
+    continuous_focus_position = { x = 50 y = 1000 }
+
+    # Политический выбор направления государства
+    focus = {
+        id = NWR_take_soviet_course
+        icon = GFX_goal_generic_political_pressure
+        x = 8
+        y = 0
+        cost = 5
+        mutually_exclusive = { focus = NWR_road_to_independence }
+        available = {
+            has_political_power > 49
+        }
+        completion_reward = {
+            add_political_power = -50
+            add_stability = 0.03
+            add_ideas = NWR_soviet_course_spirit
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_soviet_course_opinion
+            }
+            SOV = {
+                add_ai_strategy = {
+                    type = befriend
+                    id = NWR
+                    value = 120
+                }
+            }
+        }
+    }
+
+    focus = {
+        id = NWR_road_to_independence
+        icon = GFX_goal_generic_national_unity
+        x = 12
+        y = 0
+        cost = 5
+        mutually_exclusive = { focus = NWR_take_soviet_course }
+        completion_reward = {
+            add_political_power = 70
+            add_stability = 0.05
+        }
+    }
+
+    # Ветка "Взять курс на СССР"
+    focus = {
+        id = NWR_restore_party_cells
+        icon = GFX_goal_generic_propaganda
+        x = 8
+        y = 1
+        cost = 5
+        prerequisite = { focus = NWR_take_soviet_course }
+        completion_reward = {
+            add_stability = 0.02
+            add_war_support = 0.02
+        }
+    }
+
+    focus = {
+        id = NWR_red_education_program
+        icon = GFX_goal_generic_scientific_exchange
+        x = 8
+        y = 2
+        cost = 5
+        prerequisite = { focus = NWR_restore_party_cells }
+        completion_reward = {
+            add_research_slot = 1
+            add_political_power = -25
+        }
+    }
+
+    focus = {
+        id = NWR_union_with_comrades
+        icon = GFX_goal_support_communism
+        x = 8
+        y = 3
+        cost = 5
+        prerequisite = { focus = NWR_red_education_program }
+        completion_reward = {
+            add_popularity = {
+                ideology = communism
+                popularity = 0.08
+            }
+            add_opinion_modifier = {
+                target = SOV
+                modifier = NWR_soviet_course_opinion
+            }
+        }
+    }
+
+    focus = {
+        id = NWR_path_caucasian_ssr
+        icon = GFX_goal_generic_political_reform
+        x = 7
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_union_with_comrades }
+        mutually_exclusive = { focus = NWR_path_middle_east_ssr }
+        completion_reward = {
+            add_stability = 0.04
+            add_political_power = 50
+        }
+    }
+
+    focus = {
+        id = NWR_path_middle_east_ssr
+        icon = GFX_goal_generic_diplomacy
+        x = 9
+        y = 4
+        cost = 5
+        prerequisite = { focus = NWR_union_with_comrades }
+        mutually_exclusive = { focus = NWR_path_caucasian_ssr }
+        completion_reward = {
+            add_war_support = 0.04
+            add_political_power = 50
+        }
+    }
+}
